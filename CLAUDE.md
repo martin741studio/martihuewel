@@ -14,7 +14,10 @@ no CMS backend for the front-end.
    decisions, not facts to invent.
 2. `README.md` — recommended stack (hosting, forms/CRM, email, booking, SEO, consent) and
    file structure.
-3. `assets/css/styles.css` — design tokens (`:root`) for the **improved** brand system.
+3. `SECURITY.md` — security/safety checklist status for this project (forms, backend,
+   DSGVO, headers). Check it before adding any form, backend call, or third-party script;
+   don't ship a form with a live submit target until its backend items are done.
+4. `assets/css/styles.css` — design tokens (`:root`) for the **improved** brand system.
    `assets/css/exact.css` — tokens for the **exact/current**-brand rebuild. Do not mix them.
 
 ## Non-negotiable rules (violating these caused real client complaints — do not repeat)
