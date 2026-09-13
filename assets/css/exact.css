@@ -34,6 +34,10 @@ header.site img.logo{width:60px;height:60px;border-radius:50%}
 nav.mainnav{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto}
 nav.mainnav a{color:var(--text);font-size:14px}
 nav.mainnav a:hover{color:var(--green)}
+nav.mainnav .has-sub{position:relative}
+nav.mainnav .sub{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line);min-width:230px;padding:6px 0;z-index:20;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+nav.mainnav .has-sub:hover .sub,nav.mainnav .has-sub:focus-within .sub{display:block}
+nav.mainnav .sub a{display:block;padding:8px 14px;font-size:13.5px;white-space:nowrap}
 
 /* hero */
 .hero{background:var(--bg-alt)}
