@@ -186,9 +186,19 @@
 <section><div class="wrap center">
   <span class="eyebrow">Persönlich</span>
   <h2>Sie möchten mehr wissen - klicken Sie auf mein Video</h2>
-  <div class="video" style="background:var(--sand);display:flex;align-items:center;justify-content:center;color:var(--soft)">
-    <!-- TODO: embed the real video (source not confirmed) -->
-    <span>Video folgt</span>
+  <div class="video" id="yt-video" data-yt-id="kElKa09l804" style="overflow:hidden">
+    <img src="https://i.ytimg.com/vi/kElKa09l804/sddefault.jpg" alt="Vorschaubild: Vorstellungsvideo Heilpraktiker Martin Hüwel" loading="lazy">
+    <button class="play" type="button" aria-label="Video abspielen" onclick="
+      var d=this.parentElement;
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+d.dataset.ytId+'?autoplay=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;playsinline=1';
+      /* crop only the top channel/title overlay; bottom control bar stays aligned + fully usable */
+      f.style.cssText='width:100%;height:112%;border:0;position:absolute;top:-12%;left:0';
+      f.allow='accelerate-motion; autoplay; encrypted-media; picture-in-picture';
+      f.allowFullscreen=true;
+      d.innerHTML='';
+      d.appendChild(f);
+    "><span>▶</span></button>
   </div>
 </div></section>
 
