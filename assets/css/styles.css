@@ -84,6 +84,11 @@ section.sand{background:var(--sand);border-top:1px solid var(--line);border-bott
 .nav a{color:var(--ink);font-weight:600;font-size:14.5px}
 .nav a:hover{color:var(--green)}
 .nav .btn{color:#fff}
+.nav .has-sub{position:relative}
+.nav .sub{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 0;min-width:250px;box-shadow:var(--shadow);z-index:40}
+.nav .has-sub:hover .sub,.nav .has-sub:focus-within .sub{display:block}
+.nav .sub a{display:block;padding:8px 18px;font-weight:500;font-size:14px;white-space:nowrap;color:var(--ink)}
+.nav .sub a:hover{background:var(--sand);color:var(--green)}
 .burger{display:none;background:none;border:0;font-size:26px;color:var(--green-dark);cursor:pointer}
 
 /* ---------- 6. HERO ---------- */
@@ -217,8 +222,10 @@ footer a:hover{color:#fff}
   .trust .wrap{grid-template-columns:1fr 1fr}
   .trust .t:nth-child(2){border-right:0}
   footer .wrap{grid-template-columns:1fr}
-  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:16px 24px;border-bottom:1px solid var(--line)}
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;flex-wrap:nowrap;padding:16px 24px;border-bottom:1px solid var(--line);max-height:80vh;overflow-y:auto}
   .nav.open{display:flex}
+  .nav .sub{display:block;position:static;background:none;border:0;box-shadow:none;padding:2px 0 6px 14px;min-width:0}
+  .nav .sub a{padding:6px 0;font-size:13.5px;color:var(--soft)}
   .burger{display:block}
   .form .row{grid-template-columns:1fr}
   .sticky{display:flex}
