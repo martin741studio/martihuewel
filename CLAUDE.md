@@ -59,6 +59,19 @@ no CMS backend for the front-end.
    ask** — diff the actual text/images used against the source, and check each requirement
    in the request was met, before committing. Do this per block, not only at the end.
 
+8. **Every page needs a real, client-sourced content image — never ship a page with only
+   the shared header logo.** Before writing a new page, check both: (a) images already
+   live on the current site (`branding.json` → note URLs are on `static.only-inside.de`,
+   confirm each still resolves), and (b) the client's Drive `Assets` folder for newer
+   photos. **Open and visually inspect every candidate image before using it** — do not
+   trust a filename. A file named like an AI-tool export (e.g. "ChatGPT Image ...") is a
+   red flag; open it and check for tells (garbled text on diplomas/signage/book spines,
+   an office that doesn't match the client's real one) before ruling it in or out. Never
+   use an AI-generated image as if it were a real photo of the practice, practitioner, or
+   a patient. If a photo shows a detail that contradicts existing site copy (e.g. a
+   different device brand than what the text names), don't silently pick a side — use a
+   neutral image instead and flag the discrepancy for the client to resolve.
+
 ## NAP (locked, from `branding.json`)
 Gesundheitspraxis im Nürbanum – Martin Hüwel · Allersberger Straße 185, Gebäude A7, 3. OG,
 90461 Nürnberg · 0911 6007651 · info@praxis-huewel.de · Mo–Sa 08:00–20:00, So 10:00–22:00.
