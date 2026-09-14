@@ -40,7 +40,8 @@
 /* ---------- 2. RESET / BASE ---------- */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
+html{overflow-x:hidden;max-width:100%}
+body{font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--green);text-decoration:none}
 h1,h2,h3,h4{font-family:var(--font-head);font-weight:600;line-height:1.12;color:var(--ink);letter-spacing:-.01em}
