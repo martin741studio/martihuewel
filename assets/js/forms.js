@@ -43,7 +43,8 @@
           box.setAttribute('role', 'status');
           box.innerHTML = '<h3>Vielen Dank für Ihre Anfrage.</h3><p>' +
             (form.getAttribute('data-success') || 'Ihre Nachricht ist bei mir angekommen. Ich melde mich zeitnah bei Ihnen.') +
-            '</p><p>Wenn es eilig ist, erreichen Sie mich auch telefonisch: ' + PHONE + '.</p>';
+            '</p>' + (form.getAttribute('data-download') ? '<p><a class="btn" href="' + form.getAttribute('data-download') + '" download>PDF jetzt herunterladen</a></p>' : '') +
+            '<p>Wenn es eilig ist, erreichen Sie mich auch telefonisch: ' + PHONE + '.</p>';
           form.replaceWith(box);
           box.scrollIntoView({ block: 'center', behavior: 'smooth' });
         } else {
