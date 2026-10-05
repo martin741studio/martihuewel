@@ -10,9 +10,6 @@
 <title>Kontakt | Praxis Hüwel – Heilpraktiker Martin Hüwel Nürnberg</title>
 <link rel="canonical" href="https://www.praxis-huewel.de/kontakt.html">
 <meta name="description" content="Kontaktieren Sie Heilpraktiker Martin Hüwel in Nürnberg: Kontaktformular, Telefon 0911 6007651 oder E-Mail info@praxis-huewel.de.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 <meta property="og:title" content="Kontakt | Praxis Hüwel">
 <meta property="og:description" content="Kontaktformular, Telefon oder E-Mail.">
@@ -24,6 +21,50 @@
 <meta name="twitter:title" content="Kontakt | Praxis Hüwel">
 <meta name="twitter:description" content="Kontaktformular, Telefon oder E-Mail.">
 <meta name="twitter:image" content="https://www.praxis-huewel.de/assets/images/og-share-default.jpg">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://www.praxis-huewel.de/kontakt.html#webpage",
+   "url": "https://www.praxis-huewel.de/kontakt.html",
+   "name": "Kontakt | Praxis Hüwel – Heilpraktiker Martin Hüwel Nürnberg",
+   "description": "Kontaktieren Sie Heilpraktiker Martin Hüwel in Nürnberg: Kontaktformular, Telefon 0911 6007651 oder E-Mail info@praxis-huewel.de.",
+   "inLanguage": "de-DE",
+   "isPartOf": {
+    "@type": "WebSite",
+    "name": "Praxis Hüwel – Martin Hüwel, Heilpraktiker Nürnberg",
+    "url": "https://www.praxis-huewel.de/"
+   },
+   "about": {
+    "@id": "https://www.praxis-huewel.de/#praxis"
+   },
+   "breadcrumb": {
+    "@id": "https://www.praxis-huewel.de/kontakt.html#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://www.praxis-huewel.de/kontakt.html#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Start",
+     "item": "https://www.praxis-huewel.de/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Kontakt",
+     "item": "https://www.praxis-huewel.de/kontakt.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 
@@ -36,7 +77,7 @@
 <!-- HEADER -->
 <header class="site-header"><div class="wrap">
   <a class="brand" href="index.html">
-    <img src="https://static.only-inside.de/clients/client_3029/heilpraktiker-martin-huewel-logo-e099ae4f6481decd7f885a61ee126658.jpg" alt="Logo Gesundheitspraxis im Nürbanum – Heilpraktiker Martin Hüwel Nürnberg">
+    <img src="assets/images/praxis-huewel-logo.jpg" alt="Logo Gesundheitspraxis im Nürbanum – Heilpraktiker Martin Hüwel Nürnberg">
     <span><b>Martin Hüwel</b>Gesundheitspraxis im Nürbanum</span>
   </a>
   <button class="burger" aria-label="Menü" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
@@ -92,7 +133,7 @@
 
 <!-- FORMULAR -->
 <section id="kontakt"><div class="wrap">
-  <form class="form" method="post" action="#" data-endpoint="TODO: Supabase/Resend">
+  <form class="form" data-form="kontakt">
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
     <label>Sie interessieren sich für: *</label>
     <div class="radiogroup" role="radiogroup" aria-required="true">
@@ -101,20 +142,20 @@
       <label><input type="radio" name="interesse" value="Siehe Fragen / Wünsche"> Siehe Fragen / Wünsche</label>
     </div>
     <div class="row">
-      <div><label>Anrede</label>
-        <select name="anrede"><option>– Bitte auswählen –</option><option>Herr</option><option>Frau</option></select></div>
-      <div><label>Firma</label><input type="text" name="firma"></div>
+      <div><label for="kontakt-anrede">Anrede</label>
+        <select id="kontakt-anrede" name="anrede"><option>– Bitte auswählen –</option><option>Herr</option><option>Frau</option></select></div>
+      <div><label for="kontakt-firma">Firma</label><input type="text" id="kontakt-firma" name="firma" autocomplete="organization"></div>
     </div>
     <div class="row">
-      <div><label>Vorname</label><input type="text" name="vorname"></div>
-      <div><label>Nachname</label><input type="text" name="nachname"></div>
+      <div><label for="kontakt-vorname">Vorname</label><input type="text" id="kontakt-vorname" name="vorname" autocomplete="given-name"></div>
+      <div><label for="kontakt-nachname">Nachname</label><input type="text" id="kontakt-nachname" name="nachname" autocomplete="family-name"></div>
     </div>
     <div class="row">
-      <div><label>Telefon</label><input type="tel" name="telefon"></div>
-      <div><label>E-Mail *</label><input type="email" name="email" required></div>
+      <div><label for="kontakt-telefon">Telefon</label><input type="tel" id="kontakt-telefon" name="telefon" autocomplete="tel"></div>
+      <div><label for="kontakt-email">E-Mail *</label><input type="email" id="kontakt-email" name="email" autocomplete="email" required></div>
     </div>
-    <label>Fragen / Wünsche</label>
-    <textarea name="nachricht" rows="4"></textarea>
+    <label for="kontakt-nachricht">Fragen / Wünsche</label>
+    <textarea id="kontakt-nachricht" name="nachricht" rows="4"></textarea>
     <label class="consent"><input type="checkbox" name="datenschutz" required>
       <span>Ich bin damit einverstanden, dass meine mitgeteilten Daten gespeichert und zur Bearbeitung meiner Anfrage und Kontaktaufnahme telefonisch oder per E-Mail genutzt werden. Eine Weitergabe meiner Daten an Dritte erfolgt nicht. Meine Einverständniserklärung kann ich jederzeit kostenfrei und ohne jeden Nachteil mit Wirkung für die Zukunft widerrufen. Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> zur Kenntnis genommen.</span></label>
     <button class="btn btn-lg" type="submit">Kontakt aufnehmen</button>
@@ -132,7 +173,12 @@
       <p style="color:var(--soft)"><b>E-Mail</b><br><a href="mailto:info@praxis-huewel.de">info@praxis-huewel.de</a></p>
     </div>
     <div class="map">
-      <iframe title="Karte – Praxis Martin Hüwel, Allersberger Straße 185, Nürnberg" loading="lazy" src="https://maps.google.com/maps?q=Allersberger%20Stra%C3%9Fe%20185%2C%2090461%20N%C3%BCrnberg&output=embed"></iframe>
+      <div class="embed-gate" data-embed="map" data-src="https://maps.google.com/maps?q=Allersberger%20Stra%C3%9Fe%20185%2C%2090461%20N%C3%BCrnberg&output=embed" data-title="Karte – Praxis Martin Hüwel, Allersberger Straße 185, Nürnberg">
+        <p><b>Karte von Google Maps</b></p>
+        <p>Beim Laden der Karte werden Daten, z. B. Ihre IP-Adresse, an Google übertragen. Mehr dazu in der <a href="datenschutz.html#maps">Datenschutzerklärung</a>.</p>
+        <button type="button" class="btn">Karte laden</button>
+        <p class="small"><a href="https://www.google.com/maps/search/?api=1&amp;query=Allersberger+Stra%C3%9Fe+185+90461+N%C3%BCrnberg" rel="noopener" target="_blank">Oder die Adresse direkt in Google Maps öffnen</a></p>
+      </div>
     </div>
   </div>
 </div></section>
@@ -173,5 +219,7 @@
 </div>
 
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<script src="assets/js/embeds.js" defer></script>
+<script src="assets/js/forms.js" defer></script>
 </body>
 </html>

@@ -231,3 +231,19 @@ footer a:hover{color:#fff}
   .sticky{display:flex}
   body{padding-bottom:70px}
 }
+
+/* Embed-Gate (Zwei-Klick-Lösung für Karte und Terminkalender) */
+.embed-gate{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:28px 22px;background:var(--sand,#f3efe6);border:1px solid var(--line,#ddd);border-radius:var(--radius,12px);min-height:320px;height:100%}
+.embed-gate p{margin:0;max-width:46ch;font-size:15px;line-height:1.6;color:var(--soft,#555)}
+.embed-gate p.small{font-size:13px}
+.embed-gate button{cursor:pointer;font:inherit}
+.loc .map .embed-gate{border:0}
+.video-note{font-size:13px;color:var(--soft,#666);margin:8px 0 0;text-align:center}
+
+/* Formular-Rückmeldung */
+.form-status{margin-top:14px;font-size:15px;line-height:1.55}
+.form-status.error{padding:12px 14px;border:1px solid #b3402a;background:#fbefec;color:#7a2616;border-radius:8px}
+.form-success{padding:28px 24px;background:var(--sand,#f3efe6);border:1px solid var(--line,#ddd);border-radius:var(--radius,12px)}
+.form-success h3{margin:0 0 8px}
+.form-success p{margin:0 0 8px}
+.form button[disabled]{opacity:.65;cursor:wait}
