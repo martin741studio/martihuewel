@@ -94,3 +94,10 @@ footer.site .legal{margin-top:20px;font-size:12.5px;opacity:.9}
   .hero .wrap,.grid3,.grid2,.loc,footer.site .wrap{grid-template-columns:1fr}
   form.contact .row{grid-template-columns:1fr}
 }
+
+/* Home: YouTube click-to-play facade */
+#yt-video{aspect-ratio:16/9;background:#000;border-radius:6px}
+#yt-video img{width:100%;height:100%;object-fit:cover;opacity:.8;display:block;border-radius:0}
+#yt-video .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:none;border:0;cursor:pointer;padding:0}
+#yt-video .play span{width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.92);color:#2d5a3d;display:flex;align-items:center;justify-content:center;font-size:30px;padding-left:6px}
+#yt-video .play:focus-visible{outline:3px solid #fff;outline-offset:-6px}
