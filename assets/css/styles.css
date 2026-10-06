@@ -281,3 +281,13 @@ footer a:hover{color:#fff}
 /* Wartezeit-Vermeider: Grafik */
 .doc-wide img{display:block;width:100%;height:auto;border-radius:var(--radius);box-shadow:0 14px 34px rgba(30,40,30,.18)}
 .doc-thumb-wide{width:min(300px,100%);height:auto;border-radius:10px;box-shadow:0 8px 20px rgba(30,40,30,.16);flex:none}
+
+/* Video-Fassade: Vorschaubild unverdunkelt */
+#yt-video img,#yt-video-hp img{opacity:1;filter:none}
+#yt-video .play span,#yt-video-hp .play span{box-shadow:0 6px 22px rgba(0,0,0,.35)}
+#yt-video .play:hover span,#yt-video-hp .play:hover span{transform:scale(1.06)}
+#yt-video .play span,#yt-video-hp .play span{transition:transform .15s ease}
+
+/* Der Abspiel-Knopf darf das Vorschaubild nicht mit dem Standard-Grau des Browsers überdecken */
+.video .play{background:transparent;border:0;padding:0;margin:0;cursor:pointer;appearance:none;-webkit-appearance:none}
+.video .play:focus-visible{outline:3px solid #fff;outline-offset:-6px}
