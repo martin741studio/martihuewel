@@ -247,3 +247,16 @@ footer a:hover{color:#fff}
 .form-success h3{margin:0 0 8px}
 .form-success p{margin:0 0 8px}
 .form button[disabled]{opacity:.65;cursor:wait}
+
+/* Behandlungspakete */
+.pkgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;margin-top:26px}
+.pkg h3{font-size:21px}
+.pkg p{color:var(--soft);font-size:15.5px;margin:0 0 4px}
+.pkg-list{list-style:none;padding:0;margin:8px 0 16px}
+.pkg-list li{position:relative;padding-left:24px;margin:5px 0;font-size:15.5px}
+.pkg-list li::before{content:"✔";position:absolute;left:0;color:var(--green);font-weight:700}
+.pkg .price{margin-top:auto;padding-top:8px}
+.pkg .price small{display:block;margin-top:2px}
+.pkg .btn{margin-top:12px}
+.pkg-note{margin:18px 0 0;font-size:13.5px;color:var(--soft)}
+.offer-card .price{font-size:26px}
