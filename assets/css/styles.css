@@ -291,3 +291,14 @@ footer a:hover{color:#fff}
 /* Der Abspiel-Knopf darf das Vorschaubild nicht mit dem Standard-Grau des Browsers überdecken */
 .video .play{background:transparent;border:0;padding:0;margin:0;cursor:pointer;appearance:none;-webkit-appearance:none}
 .video .play:focus-visible{outline:3px solid #fff;outline-offset:-6px}
+
+/* Überschriften-Ebenen (SEO) ohne Änderung des Aussehens */
+footer .foot-title{color:#fff;font-family:var(--font-head);font-weight:600;line-height:1.12;margin:0 0 12px;font-size:19px}
+.as-h1{font-size:clamp(32px,5vw,50px)}.as-h2{font-size:clamp(26px,3.6vw,38px)}.as-h3{font-size:clamp(19px,2.2vw,23px)}.as-h4{font-size:19px}
+
+/* Weitere Beiträge */
+.related{margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.related ul{list-style:none;padding:0;margin:10px 0 0}
+.related li{margin:7px 0}
+.related a,.more-topic a{color:var(--green-dark);text-decoration:underline}
+.more-topic{margin:26px 0 0;font-size:16px}
