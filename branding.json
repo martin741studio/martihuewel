@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "source": "https://www.praxis-huewel.de/ (live site + web.css), extracted 2026-09-12",
+    "note": "Firecrawl scrape endpoint not available in this workspace; values pulled directly from the live HTML/CSS. Fields marked GAP are missing/undefined in the current brand and should be filled."
+  },
+  "brand": {
+    "practice_name": "Gesundheitspraxis im Nürbanum",
+    "practitioner": "Martin Hüwel",
+    "role": "Heilpraktiker & Homöopath",
+    "location": "Nürnberg (Südstadt / Nürbanum)",
+    "domain": "praxis-huewel.de",
+    "tagline_current": "GAP — no consistent brand claim/slogan in use",
+    "positioning_current": "Heilpraktiker & Homöopath Nürnberg – Gesundheitspraxis im Nürbanum",
+    "usp": ["Mehr als 30 Jahre Erfahrung", "staatlich zugelassener Heilpraktiker", "ganzheitlicher Ansatz"]
+  },
+  "logo": {
+    "url": "https://static.only-inside.de/clients/client_3029/heilpraktiker-martin-huewel-logo-e099ae4f6481decd7f885a61ee126658.jpg",
+    "format": "JPG 480x480 (no transparency)",
+    "motif": "runder grüner Kreis mit Vitruvian-Man-Silhouette + 'Martin Hüwel'",
+    "variants": "GAP — kein SVG, kein transparentes PNG, keine hell/dunkel-Variante, kein sauberes Favicon"
+  },
+  "colors": {
+    "primary": "#426C00",
+    "primary_usage": "Navigation, Buttons, Akzente, Logo (36x im CSS)",
+    "secondary": "#B9B3A5",
+    "secondary_usage": "warmes Taupe/Beige, Flächen/Trenner (21x)",
+    "text": "#333333",
+    "neutrals": ["#FFFFFF", "#F5F5F5", "#EEEEEE", "#DDDDDD", "#CFCFCF", "#C1C5C1", "#6C757D"],
+    "accent_cta": "GAP — kein eigener Akzent/CTA-Ton definiert",
+    "dark_shade": "GAP — kein dunkles Grün (Hover/Kontrast) definiert",
+    "background_warm": "GAP — kein Sand/Creme als Markenhintergrund definiert",
+    "semantic_states": "GAP — kein success/warning/error definiert",
+    "tokens_documented": false
+  },
+  "typography": {
+    "current": "Helvetica / Arial (System-Sans, überall gleich)",
+    "display_face": "GAP — keine eigene Headline-Schrift, keine Hierarchie/Persönlichkeit",
+    "body_face": "Helvetica",
+    "note": "Neue Seiten (Gesundheitscheck/Hub) nutzen aktuell Montserrat/Roboto → Inkonsistenz, muss vereinheitlicht werden"
+  },
+  "imagery": {
+    "style_current": "überwiegend generische Stockbilder (z.B. 'wooden-figure', 'move-3605073', abstrakte Motive)",
+    "real_practice_photos": "wenige; neues Martin-Foto (Schreibtisch + Diplome) ist die richtige Richtung",
+    "alt_texts": "GAP — Alt-Texte sind Dateinamen/IDs (schlecht für SEO & Barrierefreiheit)",
+    "treatment": "GAP — keine einheitliche Bildsprache/Filter definiert"
+  },
+  "voice_tone": {
+    "current": "sachlich-informativ, teils medizinisch",
+    "defined_guidelines": "GAP — kein dokumentierter Marken-Ton",
+    "recommended": "warm, kompetent, ganzheitlich, vertrauensbildend; HWG-sicher ('kann', 'Ziel ist', 'unterstützt')"
+  },
+  "messaging": {
+    "services": ["Homöopathie", "Frequenztherapie", "Psychosomatische Energetik", "Gesundheitscheck (Bioscan)"],
+    "primary_cta_current": "'Jetzt anfragen' / 'Termine'",
+    "value_proposition": "GAP — keine klare, wiederkehrende Nutzenaussage",
+    "trust_signals": "GAP — Google-Bewertungen nicht sichtbar eingebunden"
+  },
+  "contact_nap": {
+    "name": "Gesundheitspraxis im Nürbanum – Martin Hüwel",
+    "street": "Allersberger Straße 185, Gebäude A7, 3. OG",
+    "zip_city": "90461 Nürnberg",
+    "phone": "0911 6007651",
+    "phone_displayed": "0911 - 600 76 51",
+    "email": "info@praxis-huewel.de",
+    "hours": "Mo–Sa 08:00–20:00, So 10:00–22:00"
+  },
+  "social": ["Facebook", "Xing", "LinkedIn", "Twitter/X"],
+  "seo_meta": {
+    "title": "Heilpraktiker & Homöopath Nürnberg – Gesundheitspraxis im Nürbanum",
+    "description": "Mehr als 30 Jahre Erfahrung als Heilpraktiker ✓ Spezialisiert auf Homöopathie, Frequenztherapie, psychosomatische Energetik | ☎ 0911 - 600 76 51",
+    "og_image": "mail_huewel-600x315 (generisch, nicht gebrandet)",
+    "favicon": "GAP",
+    "theme_color": "GAP"
+  }
+}
