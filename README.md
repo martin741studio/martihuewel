@@ -1,81 +1,85 @@
-# Gesundheitspraxis im Nürbanum – Martin Hüwel (Website)
+# Website Praxis Hüwel – www.praxis-huewel.de
 
-Owned, custom rebuild of praxis-huewel.de — static, fast, editable via the 741 chat workflow.
-Replaces the rented ONLY INSIDE CMS. This repo IS the site (he owns the code).
+Gesundheitspraxis im Nürbanum · Martin Hüwel · Heilpraktiker · Nürnberg
 
-## Homepage
-`index.html` — recreation of the current homepage (same content, images, header, footer),
-rebuilt in the **improved brand system** (not pixel-perfect, improved per 741 recommendations).
+Dies ist der gesamte Code der Website. Die Seite gehört dir. 741 Studio verwaltet das Repository und betreut die Technik.
+Du kannst Texte, Bilder und neue Seiten im Chat mit einer KI ändern. Die Regeln dafür stehen in dieser Datei und in `AGENTS.md`.
 
----
+## So arbeitest du mit der KI
 
-## 1. Branding tech setup (design system)
+**1. Öffne das Repository mit deinem KI-Werkzeug.** Zum Beispiel Claude Code, Cursor oder Copilot. 741 Studio zeigt dir die Einrichtung einmal.
 
-All brand decisions live as tokens in `assets/css/styles.css` (`:root`). Change once → whole site updates.
+**2. Beginne jede Sitzung mit diesem Satz:**
 
-### Colours (primary green kept from the live site)
-| Token | Value | Use |
-|---|---|---|
-| `--green` | `#426C00` | Primary (buttons, links, accents) |
-| `--green-dark` | `#2E4B00` | Hover, headings-on-light, CTA band |
-| `--green-soft` | `#5C8A12` | Focus ring, light accent |
-| `--green-bg` | `#EEF3E4` | Tint surfaces |
-| `--sand` | `#F6F2E9` | Section ground |
-| `--cream` | `#FBF9F3` | Page ground |
-| `--taupe` | `#B9B3A5` | Muted (kept from live palette) |
-| `--gold` | `#C0872E` | Small accent (stars) |
-| `--ink` `--soft` `--line` | `#26291F` `#5c5f54` `#E7E2D4` | Text / secondary / borders |
+> Lies zuerst `AGENTS.md` und `DESIGN.md`. Ich bin Martin Hüwel, Heilpraktiker, und kein Entwickler. Erkläre alles einfach. Stelle mir Fragen, bis du die Aufgabe sicher verstanden hast, und sage mir den Plan, bevor du etwas änderst.
 
-**Improvement vs. live:** the old site had only green + taupe + greys and no CTA/hover/ground tokens.
-This adds a documented, consistent token set.
+**3. Sage, was du willst.** Zum Beispiel:
+- „Auf der Seite Homöopathie soll im ersten Absatz stehen: …“
+- „Lege eine neue Seite zu Bioresonanz bei Allergien an.“
+- „Ich habe ein neues Foto vom Behandlungsraum. Baue es auf der Seite Über mich ein.“
+- „Nimm die Seite Vitalstoffanalyse aus dem Menü.“
 
-### Typography (improvement — old site was generic Helvetica)
-- **Headings:** `Fraunces` (warm humanist serif → trust + experience)
-- **Body:** `Inter` (clean, highly legible)
-- Loaded via Google Fonts in `index.html` (swap the `<link>` + `--font-*` tokens to change).
+**4. Beantworte die Fragen der KI.** Sie fragt nach Seite, Text, Bildrechten und Einwilligungen. Das schützt dich vor Fehlern und vor Abmahnungen.
 
-### Other brand assets to finish (GAPs from the branding audit)
-- Logo as **SVG + transparent PNG** (currently a 480×480 JPG), favicon, theme-color.
-- Replace remaining **stock imagery** with real practice photos; descriptive alt-texts (done on homepage).
-- Branded OG/social image.
+**5. Bestätige den Plan.** Die KI nennt, was sie ändert. Antworte mit „Ja“ oder sage, was anders sein soll.
 
----
+**6. Die KI reicht die Änderung ein.** Sie arbeitet auf einer Kopie und prüft sie automatisch (kaputte Links, Bilder, Titel, Überschriften). Danach prüft 741 Studio sie.
 
-## 2. Recommended stack (owned, 741-style)
+**7. Nach der Freigabe ist die Änderung nach 1–2 Minuten auf der Seite.**
 
-| Layer | Choice |
+## Was die KI nicht ändert
+
+Das Design (Farben, Schrift, Abstände), die Formulare, die Technik, die Domain und die E-Mail.
+Das schützt die Seite. Wenn du eine Design-Änderung willst, schreibe an 741 Studio.
+
+## Wenn etwas schiefgeht – zurückholen
+
+Nichts geht verloren. Jede Änderung bleibt gespeichert.
+
+- **Nach dem Live-Gang:** Öffne die Änderung auf GitHub (Reiter „Pull requests“, Filter „Closed“) und klicke **Revert**. 741 Studio gibt das Zurücksetzen frei, dann ist die alte Version in 1–2 Minuten wieder da.
+- **Vorher abbrechen:** Sage der KI „Verwirf diese Änderung“. Solange nichts freigegeben ist, ist die Live-Seite nicht betroffen.
+- **Fester Rückkehrpunkt:** Der geprüfte Stand bei der Übergabe heißt `stand-2026-10-09-uebergabe`. Auf ihn kann 741 Studio jederzeit zurückgehen.
+- **Dringend und niemand erreichbar:** Schreibe an martin@741.studio.
+
+## Was gesperrt ist (Schutz der Seite)
+
+| Bereich | Wer ändert |
 |---|---|
-| Front-end | Static HTML/CSS (this repo). Can grow into Vite/Handlebars partials for shared header/footer. |
-| Editing / deploy | Claude (chat) → git → auto-deploy |
-| Hosting / CDN / SSL | Cloudflare Pages or Netlify (domain praxis-huewel.de) |
-| Forms → leads | Serverless function → **Supabase** + auto-reply via **Resend** *(contact form action = TODO)* |
-| CRM / contacts | Supabase (contacts, notes, source, birthday, consent) |
-| Email + automation | Resend + Supabase scheduled functions (newsletter, appointment, birthday) |
-| Booking | Cal.com embed on /termine |
-| Consent / DSGVO | Consent-Mode-v2 banner + Impressum/Datenschutz |
-| SEO / GEO | JSON-LD (MedicalBusiness/Person, Service, FAQPage), sitemap.xml, canonicals, OG |
-| Analytics | GA4 + GSC |
+| Texte, Bilder, neue Seiten, Blogartikel | Du mit der KI, mit Freigabe durch 741 Studio |
+| Design (`assets/css/`), Skripte (`assets/js/`), Formulare | nur 741 Studio |
+| Domain, DNS, E-Mail | ONLY INSIDE / 741 Studio |
+| Prüfungen (`scripts/`, `.github/`) | nur 741 Studio |
 
----
+Auf dem Hauptzweig `main` darf niemand direkt speichern. Jede Änderung läuft über einen Pull Request mit Prüfung.
 
-## 3. Structure
-```
-index.html              # homepage (improved)
-assets/css/styles.css   # design tokens + components + page styles
-```
-Next pages reuse the same header/footer + tokens: `was-ist-ihr-anliegen.html`,
-`methoden-als-werkzeuge*.html`, `der-wartezeit-vermeider.html`, `ueber-mich.html`,
-`blog.html`, `termine.html`, `kontakt.html`, `impressum.html`, `datenschutz.html`.
+## Wichtige Regeln in Kurzform
 
-## 4. Run locally
+1. **Keine Heilversprechen**, keine Aussagen zu Krebs, keine Garantien (Heilmittelwerbegesetz).
+2. **Patientenfotos und Erfahrungsberichte** nur mit schriftlicher Einwilligung.
+3. **Keine erfundenen Zahlen** oder Bewertungen.
+4. **Alte Adressen bleiben** (Weiterleitung statt Löschen).
+5. **Nichts von Dritten laden** (Google Fonts, YouTube, Karten) ohne Klick des Besuchers.
+
+## Für Entwickler und 741 Studio
+
+| Datei | Inhalt |
+|---|---|
+| `AGENTS.md` | Regeln und Arbeitsablauf für KI-Assistenten (`CLAUDE.md` verweist darauf) |
+| `DESIGN.md` | Design-Werte, erlaubte Bausteine, Prüfgrenzen |
+| `scripts/audit.py` | Vollständiger Seitentest: Links, Bilder, SEO, Überschriften |
+| `scripts/check_repo.py` | Repo-Regeln: Löschschutz, Fremd-Skripte, Bildnamen, Sitemap, Risikowörter |
+| `.github/workflows/pruefung.yml` | Führt beide Prüfungen bei jedem Pull Request aus |
+| `.github/CODEOWNERS` | Jede Änderung braucht die Freigabe von 741 Studio |
+| `SECURITY.md` | Sicherheits- und Datenschutzstand (Stand der Bauphase, wird noch aktualisiert) |
+
+**Lokal ansehen und prüfen:**
+
 ```bash
-python3 -m http.server 8799
-# open http://localhost:8799/index.html
+python3 -m http.server 8765
+SITE=http://localhost:8765/ python3 scripts/audit.py
+python3 scripts/check_repo.py --base origin/main
 ```
 
-## 5. TODO before go-live
-- Wire the contact form to Supabase + Resend (currently `action="#"`, honeypot in place).
-- Logo SVG + favicon; branded OG image.
-- Real photos where stock remains; keep alt-texts descriptive.
-- Build remaining pages; generate a correct sitemap.xml (the live one is stale).
-- Consent banner + GA4; Cal.com on /termine.
+**Technik:** Statisches HTML/CSS/JS ohne Build, gehostet auf GitHub Pages (`CNAME`: `www.praxis-huewel.de`).
+Formulare senden an die Funktion `site-form` im Portal von 741 Studio (Speicherung und E-Mail über Resend, Absender `info@praxis-huewel.de`).
+Domain und E-Mail liegen bei ONLY INSIDE.

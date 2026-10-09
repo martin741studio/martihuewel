@@ -1,0 +1,31 @@
+name: Prüfung
+
+# Läuft bei jedem Pull Request nach main. Die Änderung darf erst live gehen, wenn diese Prüfung grün ist
+# und 741 Studio sie freigegeben hat. Regeln: AGENTS.md und DESIGN.md.
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pruefung:
+    name: Prüfung
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Repo-Regeln (Löschungen, Fremd-Skripte, Bilder, Sitemap, Risikowörter)
+        env:
+          ALLOW_DELETE: ${{ contains(github.event.pull_request.title, '[löschen erlaubt]') && '1' || '0' }}
+        run: python3 scripts/check_repo.py --base "origin/${{ github.base_ref }}"
+
+      - name: Seite lokal starten und vollständig prüfen (Links, Bilder, SEO)
+        run: |
+          python3 -m http.server 8765 >/dev/null 2>&1 &
+          sleep 3
+          SITE=http://localhost:8765/ python3 scripts/audit.py
