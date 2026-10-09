@@ -110,3 +110,4 @@ Diese Grenzen prüft `scripts/audit.py` bei jedem Pull Request:
 
 Neue Bausteine, Farben, Schriften, das Menü-Konzept, neue Formulartypen, Tracking, die englische Version
 und alles in `assets/css/styles.css` und `assets/js/`.
+
