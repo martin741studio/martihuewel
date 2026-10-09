@@ -25,7 +25,16 @@ jobs:
         run: python3 scripts/check_repo.py --base "origin/${{ github.base_ref }}"
 
       - name: Seite lokal starten und vollständig prüfen (Links, Bilder, SEO)
+        timeout-minutes: 8
+        env:
+          PYTHONUNBUFFERED: "1"
         run: |
-          python3 -m http.server 8765 >/dev/null 2>&1 &
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/server.log 2>&1 &
+          SERVER=$!
           sleep 3
-          SITE=http://localhost:8765/ python3 scripts/audit.py
+          curl -sf http://127.0.0.1:8765/sitemap.xml >/dev/null || { echo "Server startet nicht"; cat /tmp/server.log; exit 1; }
+          set +e
+          SITE=http://127.0.0.1:8765/ python3 scripts/audit.py
+          RC=$?
+          kill $SERVER
+          exit $RC

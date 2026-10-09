@@ -5,7 +5,8 @@ Lokal prüfen:   python3 -m http.server 8765   (in einem zweiten Fenster)
                 SITE=http://localhost:8765/ python3 scripts/audit.py
 Prüft alle URLs aus sitemap.xml. Endet mit Exit-Code 1, wenn etwas nicht stimmt."""
 import re, sys, json, html, urllib.request, urllib.parse, concurrent.futures as cf, collections
-import os
+import os, socket
+socket.setdefaulttimeout(15)  # nie länger als 15 s auf eine Antwort warten
 LIVE = "https://www.praxis-huewel.de/"
 BASE = os.environ.get("SITE", LIVE)
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0"}
