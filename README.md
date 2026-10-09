@@ -5,6 +5,8 @@ Gesundheitspraxis im Nürbanum · Martin Hüwel · Heilpraktiker · Nürnberg
 Dies ist der gesamte Code der Website. Die Seite gehört dir. 741 Studio verwaltet das Repository und betreut die Technik.
 Du kannst Texte, Bilder und neue Seiten im Chat mit einer KI ändern. Die Regeln dafür stehen in dieser Datei und in `AGENTS.md`.
 
+**Die kurze Schritt-für-Schritt-Anleitung steht in [`ANLEITUNG.md`](ANLEITUNG.md).** Sie ist für ChatGPT Plus geschrieben.
+
 ## So arbeitest du mit der KI
 
 **1. Öffne das Repository mit deinem KI-Werkzeug.** Zum Beispiel Claude Code, Cursor oder Copilot. 741 Studio zeigt dir die Einrichtung einmal.

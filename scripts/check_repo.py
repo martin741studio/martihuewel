@@ -109,7 +109,7 @@ for line in diff.splitlines():
         continue
     if not line.startswith("+") or line.startswith("+++") or cur is None:
         continue
-    if cur in ("AGENTS.md", "DESIGN.md", "README.md", "CLAUDE.md", "SECURITY.md"):
+    if cur in ("AGENTS.md", "DESIGN.md", "README.md", "CLAUDE.md", "SECURITY.md", "ANLEITUNG.md"):
         continue
     text = re.sub(r"<[^>]+>", " ", line[1:])
     for rx, msg in RISK:

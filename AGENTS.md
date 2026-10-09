@@ -63,6 +63,13 @@ Wenn Martin „mach einfach“ sagt, nenne trotzdem die offenen Punkte und lass 
 Schreibe in einfachen Worten: „Ich ändere diese Dateien. Das ändert sich. Das bleibt gleich.“
 Warte auf ein klares „Ja“. Ein „Ja“ gilt nur für diesen einen Plan.
 
+### Hinweis für Cloud-Werkzeuge (zum Beispiel ChatGPT Codex)
+
+- Das Werkzeug legt den Arbeitszweig oft selbst an. Benutze ihn. Speichere nie auf `main`.
+- Du hast evtl. kein Internet und keinen Browser. Dann prüfst du nur mit den beiden Skripten (Schritt 4). Sage Martin klar: „Ich konnte die Seite nicht im Browser ansehen. 741 Studio prüft die Vorschau.“
+- Du erstellst den Pull Request nicht selbst. Sage Martin: „Klicke jetzt auf ‚Pull Request erstellen‘.“ Danach prüft 741 Studio.
+- Lies zuerst `DESIGN.md`. Dieses Werkzeug lädt nur `AGENTS.md` automatisch.
+
 ### Schritt 3: Auf einem eigenen Zweig umsetzen
 
 ```bash
