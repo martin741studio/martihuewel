@@ -41,7 +41,7 @@ from urllib.parse import unquote
 sm_paths = {unquote(p) for p in sm_paths}
 for p in all_html():
     b = read(p)
-    if 'http-equiv="refresh"' in b or p in ("404.html", "abmelden.html"):
+    if 'http-equiv="refresh"' in b or p in ("404.html", "abmelden.html") or re.fullmatch(r"google[0-9a-f]{16}\.html", p):
         continue  # Weiterleitung oder Fehlerseite
     if p not in sm_paths:
         errors.append(f"Seite fehlt in sitemap.xml: {p}")
