@@ -62,6 +62,8 @@ for p in all_html():
     for rx, msg in FORBIDDEN:
         if re.search(rx, b, re.I):
             errors.append(f"{p}: {msg}")
+    if 'http-equiv="refresh"' not in b and re.search(r"""href=["'](?:\./|(?:\.\./)+|/)?index\.html""", b):
+        errors.append(f"{p}: Startseite als / verlinken, nicht als index.html (doppelte Adresse für Google)")
     if re.search(r"<style\b", b, re.I):
         errors.append(f"{p}: eigener <style>-Block ist nicht erlaubt (DESIGN.md)")
 

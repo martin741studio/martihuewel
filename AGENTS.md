@@ -153,6 +153,7 @@ Kopiere eine ähnliche bestehende Seite als Vorlage (Methode: `methoden-als-werk
 - [ ] Pfade stimmen: in Unterordnern beginnen Links und Bilder mit `../`.
 - [ ] Neue Seite in **das Menü aller Seiten** eintragen (Kopfzeile und Fußzeile), mit dem richtigen Pfad je Ordnertiefe.
 - [ ] Neue Seite in `sitemap.xml` eintragen (`<loc>` mit voller Adresse, `<lastmod>` mit dem heutigen Datum).
+- [ ] Die Startseite wird immer als `/` verlinkt (`href="/"` oder `href="/#kontakt"`), **nie** als `index.html`. Sonst sieht Google zwei Startseiten.
 - [ ] Mindestens **zwei** bestehende Seiten verlinken auf die neue Seite. Die neue Seite verlinkt auf passende bestehende Seiten.
 - [ ] Bei Blogartikeln: Eintrag in `blog.html` und Teilen-Buttons wie bei den anderen Artikeln.
 - [ ] Hinweiskasten `hwgnote`, wenn Gesundheitsthemen vorkommen.
