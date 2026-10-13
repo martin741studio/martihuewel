@@ -183,7 +183,7 @@ Alles ist in Git gespeichert. Es geht nichts verloren, solange du die Regeln bef
   Einbettungen laufen nur über den Klick-Baustein (`embed-gate` mit `data-embed`, Code in `assets/js/embeds.js`). Das Video auf der Startseite nutzt `youtube-nocookie.com` erst nach dem Klick.
 - Schriften sind die Systemschrift „Helvetica Neue“/Arial. Keine Web-Schriften einbinden.
 - **Bilder liegen im Repository** (`assets/images/`), nicht bei Fremdanbietern.
-- **Keine Tracking- oder Analyse-Skripte** ohne ausdrückliche Anweisung von 741 Studio (dann mit Einwilligungsbanner).
+- **Messung nur über `assets/js/consent.js`** (Google Analytics 4 mit Einwilligungsfenster, strikt: Google lädt erst nach „Zustimmen“). Dort stehen die Kennung und die Ereignisse (`generate_lead`, `phone_click`, `whatsapp_click`, `email_click`). Keine weiteren Tracking-, Analyse- oder Werbeskripte ohne ausdrückliche Anweisung von 741 Studio. Ändere `consent.js` und den Datenschutz-Abschnitt 8 nie ohne 741 Studio.
 - **Formulare** laufen nur über `assets/js/forms.js` (Funktion `site-form`). Neue Formulartypen braucht das Backend von 741 Studio. Baue keine eigenen Formulare mit fremdem Ziel.
 - Keine personenbezogenen Daten (Namen, Mails, Anfragen von Patienten) in das Repository schreiben.
 
