@@ -67,6 +67,11 @@ for p in all_html():
     if re.search(r"<style\b", b, re.I):
         errors.append(f"{p}: eigener <style>-Block ist nicht erlaubt (DESIGN.md)")
 
+for jsf in sorted(os.listdir("assets/js")):
+    if jsf.endswith(".js") and jsf != "consent.js":
+        if re.search(r"googletagmanager\.com|google-analytics\.com|connect\.facebook\.net|hotjar|gtag\(", read(os.path.join("assets/js", jsf)), re.I):
+            errors.append(f"assets/js/{jsf}: Tracking-Code nur in consent.js erlaubt")
+
 # ---- 3. Löschungen (Schutz vor Datenverlust) --------------------------------------------------
 deleted = [x for x in git("diff", "--diff-filter=D", "--name-only", f"{args.base}...HEAD").splitlines() if x]
 if deleted and os.environ.get("ALLOW_DELETE") != "1":

@@ -45,6 +45,7 @@
             (form.getAttribute('data-success') || 'Ihre Nachricht ist bei mir angekommen. Ich melde mich zeitnah bei Ihnen.') +
             '</p>' + (form.getAttribute('data-download') ? '<p><a class="btn" href="' + form.getAttribute('data-download') + '" download>PDF jetzt herunterladen</a></p>' : '') +
             '<p>Wenn es eilig ist, erreichen Sie mich auch telefonisch: ' + PHONE + '.</p>';
+          if (window.phTrack) window.phTrack('generate_lead', { form_name: data.form });
           form.replaceWith(box);
           box.scrollIntoView({ block: 'center', behavior: 'smooth' });
         } else {

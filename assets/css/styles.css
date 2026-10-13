@@ -302,3 +302,13 @@ footer .foot-title{color:#fff;font-family:var(--font-head);font-weight:600;line-
 .related li{margin:7px 0}
 .related a,.more-topic a{color:var(--green-dark);text-decoration:underline}
 .more-topic{margin:26px 0 0;font-size:16px}
+
+/* ---------- 18. EINWILLIGUNG (Hinweisfenster, gesteuert von assets/js/consent.js) ---------- */
+.cc{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;display:flex;justify-content:center;pointer-events:none}
+.cc-box{pointer-events:auto;max-width:720px;width:100%;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px}
+.cc-title{font-weight:700;margin:0 0 6px;color:var(--ink)}
+.cc p{font-size:14.5px;line-height:1.55;color:var(--soft);margin:0 0 12px}
+.cc a{color:var(--green-dark);text-decoration:underline}
+.cc-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cc-btns .btn{flex:1 1 160px;justify-content:center}
+@media(max-width:900px){.cc{bottom:76px}}
