@@ -7,7 +7,7 @@ Lies sie ganz, **bevor** du etwas änderst. Es sind feste Regeln, keine Vorschl�
 
 - **Martin Hüwel** ist Heilpraktiker in Nürnberg und der Inhaber der Praxis. Er ist **kein Entwickler**.
   Er ändert Texte, Bilder und Seiten im Chat mit dir.
-- **741 Studio (Martin Drendel)** hat die Seite gebaut, besitzt das Repository und prüft jede Änderung, bevor sie live geht.
+- **741 Studio (Martin Drendel)** hat die Seite gebaut, besitzt das Repository. Eine automatische Prüfung kontrolliert jede Änderung, bevor sie live geht.
 - Sprich mit Martin Hüwel in **einfachem Deutsch**. Keine Fachbegriffe wie „Branch“, „Commit“, „Merge“, ohne sie kurz zu erklären.
   Erkläre nach jeder Aufgabe in zwei bis vier Sätzen, was du getan hast.
 - Die Website selbst spricht Besucher mit **Sie** an.
@@ -15,7 +15,7 @@ Lies sie ganz, **bevor** du etwas änderst. Es sind feste Regeln, keine Vorschl�
 ## 2. Das Wichtigste in einem Absatz
 
 Die Seite ist statisches HTML auf GitHub Pages. Jede Änderung auf dem Zweig `main` ist nach 1–2 Minuten **öffentlich live**.
-Darum arbeitest du **nie direkt auf `main`**. Du arbeitest auf einem eigenen Zweig, startest die Prüfung, öffnest einen Pull Request und wartest auf die Freigabe von 741 Studio.
+Darum arbeitest du **nie direkt auf `main`**. Du arbeitest auf einem eigenen Zweig, startest die Prüfung, öffnest einen Pull Request. Ist die Prüfung grün, geht die Änderung automatisch live. Geschützte Bereiche und Löschungen gibt 741 Studio frei.
 Jeder Stand bleibt in Git gespeichert. Du kannst jede Änderung zurückholen (siehe Abschnitt 8).
 
 ## 3. Arbeitsablauf – immer in dieser Reihenfolge
@@ -66,8 +66,8 @@ Warte auf ein klares „Ja“. Ein „Ja“ gilt nur für diesen einen Plan.
 ### Hinweis für Cloud-Werkzeuge (zum Beispiel ChatGPT Codex)
 
 - Das Werkzeug legt den Arbeitszweig oft selbst an. Benutze ihn. Speichere nie auf `main`.
-- Du hast evtl. kein Internet und keinen Browser. Dann prüfst du nur mit den beiden Skripten (Schritt 4). Sage Martin klar: „Ich konnte die Seite nicht im Browser ansehen. 741 Studio prüft die Vorschau.“
-- Du erstellst den Pull Request nicht selbst. Sage Martin: „Klicke jetzt auf ‚Pull Request erstellen‘.“ Danach prüft 741 Studio.
+- Du hast evtl. kein Internet und keinen Browser. Dann prüfst du nur mit den beiden Skripten (Schritt 4). Sage Martin klar: „Ich konnte die Seite nicht im Browser ansehen. Bitte sieh dir die Änderung nach dem Live-Gang auf deiner Seite an.“
+- Du erstellst den Pull Request nicht selbst. Sage Martin: „Klicke jetzt auf ‚Pull Request erstellen‘.“ Danach läuft die Prüfung. Ist sie grün, geht die Änderung automatisch live.
 - Lies zuerst `DESIGN.md`. Dieses Werkzeug lädt nur `AGENTS.md` automatisch.
 
 ### Schritt 3: Auf einem eigenen Zweig umsetzen
@@ -97,7 +97,7 @@ Prüfe jedes neue Bild mit eigenen Augen: Ist es scharf, passt es zum Thema, pas
 ### Schritt 5: Pull Request öffnen
 
 Öffne einen Pull Request nach `main` und fülle die Vorlage aus. Merge ihn **nicht selbst**.
-Sage Martin: „Ich habe die Änderung eingereicht. 741 Studio prüft sie. Danach geht sie live.“
+Sage Martin: „Ich habe die Änderung eingereicht. Wenn die Prüfung grün ist, ist sie in wenigen Minuten automatisch live.“
 
 ### Schritt 6: Erklären
 

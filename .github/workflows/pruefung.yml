@@ -1,7 +1,7 @@
 name: Prüfung
 
-# Läuft bei jedem Pull Request nach main. Die Änderung darf erst live gehen, wenn diese Prüfung grün ist
-# und 741 Studio sie freigegeben hat. Regeln: AGENTS.md und DESIGN.md.
+# Läuft bei jedem Pull Request nach main. Die Änderung darf erst live gehen, wenn diese Prüfung grün ist.
+# Danach schaltet automerge.yml Änderungen von Martin Hüwel automatisch live. Regeln: AGENTS.md und DESIGN.md.
 on:
   pull_request:
     branches: [main]

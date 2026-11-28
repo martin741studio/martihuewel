@@ -1,0 +1,93 @@
+name: Automatischer Live-Gang
+
+# Schaltet einen Pull Request von Martin Hüwel automatisch live, sobald die "Prüfung" grün ist.
+# Dieser Ablauf läuft immer mit dem Stand von main. Ein Pull Request kann ihn nicht verändern.
+# Nicht automatisch: geschützte Bereiche, gelöschte oder umbenannte Dateien, "[löschen erlaubt]" im Titel.
+on:
+  workflow_run:
+    workflows: ["Prüfung"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "Nummer des Pull Requests"
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  pages: write
+  checks: read
+
+concurrency:
+  group: automatischer-live-gang
+  cancel-in-progress: false
+
+jobs:
+  live:
+    name: Live schalten
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success')
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      ALLOWED_AUTHORS: "MulberryMart"
+      RUN_SHA: ${{ github.event.workflow_run.head_sha }}
+      INPUT_PR: ${{ inputs.pr }}
+    steps:
+      - name: Pull Request prüfen und live schalten
+        run: |
+          set -euo pipefail
+          skip() { echo "NICHT AUTOMATISCH: $1"; [ -n "${2:-}" ] && gh pr comment "$PR" --body "$2" || true; exit 0; }
+
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            PR="$INPUT_PR"
+          else
+            PR=$(gh pr list --state open --base main --limit 100 --json number,headRefOid \
+                 --jq ".[] | select(.headRefOid==\"$RUN_SHA\") | .number" | head -1)
+          fi
+          case "$PR" in ''|*[!0-9]*) echo "Kein offener Pull Request zu diesem Stand. Nichts zu tun."; exit 0;; esac
+
+          J=$(gh pr view "$PR" --json author,baseRefName,headRefOid,isDraft,state,isCrossRepository,title)
+          AUTHOR=$(jq -r .author.login <<<"$J"); SHA=$(jq -r .headRefOid <<<"$J"); TITLE=$(jq -r .title <<<"$J")
+          echo "Pull Request #$PR von $AUTHOR: $TITLE"
+
+          [ "$(jq -r .state <<<"$J")" = "OPEN" ] || { echo "Nicht mehr offen."; exit 0; }
+          [ "$(jq -r .baseRefName <<<"$J")" = "main" ] || { echo "Ziel ist nicht main."; exit 0; }
+          [ "$(jq -r .isDraft <<<"$J")" = "false" ] || { echo "Entwurf, bleibt offen."; exit 0; }
+          [ "$(jq -r .isCrossRepository <<<"$J")" = "false" ] || { echo "Fremdes Repository, bleibt offen."; exit 0; }
+          if [ "$GITHUB_EVENT_NAME" = "workflow_run" ] && [ "$SHA" != "$RUN_SHA" ]; then
+            echo "Seit der Prüfung gibt es einen neueren Stand. Die neue Prüfung entscheidet."; exit 0
+          fi
+
+          OWNER_RUN=false
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$GITHUB_ACTOR" = "$GITHUB_REPOSITORY_OWNER" ]; then OWNER_RUN=true; fi
+          if [ "$OWNER_RUN" != "true" ]; then
+            case ",$ALLOWED_AUTHORS," in *",$AUTHOR,"*) ;; *) echo "Autor $AUTHOR ist nicht für den automatischen Live-Gang freigegeben."; exit 0;; esac
+          fi
+
+          case "$TITLE" in *"[löschen erlaubt]"*) skip "Löschung im Titel" "Diese Änderung löscht Dateien. Sie geht nicht automatisch live, 741 Studio sieht sie sich an.";; esac
+
+          FILES=$(gh api "repos/$GH_REPO/pulls/$PR/files" --paginate --jq '.[] | "\(.status)\t\(.filename)"')
+          echo "$FILES"
+          if grep -Eq '^(removed|renamed)'$'\t' <<<"$FILES"; then
+            skip "gelöschte oder umbenannte Dateien" "Diese Änderung löscht oder verschiebt Dateien. Sie geht nicht automatisch live, 741 Studio sieht sie sich an."
+          fi
+          if cut -f2 <<<"$FILES" | grep -Eq '^(\.github/|scripts/|assets/css/|assets/js/|CNAME$|robots\.txt$|AGENTS\.md$|CLAUDE\.md$|DESIGN\.md$)'; then
+            skip "geschützter Bereich" "Diese Änderung betrifft einen geschützten Bereich (Design, Skripte, Regeln). Sie geht nicht automatisch live, 741 Studio sieht sie sich an."
+          fi
+
+          CHECK=$(gh api "repos/$GH_REPO/commits/$SHA/check-runs" --jq '[.check_runs[] | select(.name=="Prüfung")] | sort_by(.completed_at) | last | .conclusion')
+          [ "$CHECK" = "success" ] || { echo "Prüfung für diesen Stand ist nicht grün ($CHECK). Bleibt offen."; exit 0; }
+
+          if gh pr merge "$PR" --squash --delete-branch --match-head-commit "$SHA"; then
+            echo "Pull Request #$PR ist zusammengeführt."
+            gh api -X POST "repos/$GH_REPO/pages/builds" >/dev/null 2>&1 || true
+            gh pr comment "$PR" --body "Die Prüfung war grün. Die Änderung ist automatisch live gegangen und in 1 bis 3 Minuten auf der Seite sichtbar." || true
+          else
+            gh pr comment "$PR" --body "Die Änderung konnte nicht automatisch live gehen, vermutlich wegen einer anderen Änderung an derselben Stelle. 741 Studio kümmert sich darum." || true
+            exit 1
+          fi
