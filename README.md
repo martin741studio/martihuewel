@@ -71,7 +71,7 @@ Auf dem Hauptzweig `main` darf niemand direkt speichern. Jede Änderung läuft �
 | `scripts/audit.py` | Vollständiger Seitentest: Links, Bilder, SEO, Überschriften |
 | `scripts/check_repo.py` | Repo-Regeln: Löschschutz, Fremd-Skripte, Bildnamen, Sitemap, Risikowörter |
 | `.github/workflows/pruefung.yml` | Führt beide Prüfungen bei jedem Pull Request aus |
-| `.github/workflows/automerge.yml` | Schaltet Änderungen von Martin Hüwel bei grüner Prüfung automatisch live |
+| `.github/workflows/automerge.yml` | Schaltet Änderungen von Martin Hüwel bei grüner Prüfung automatisch live (eingerichtet am 28.11.2026) |
 | `.github/CODEOWNERS` | 741 Studio wird über jede Änderung informiert |
 | `SECURITY.md` | Sicherheits- und Datenschutzstand (Stand der Bauphase, wird noch aktualisiert) |
 
