@@ -66,9 +66,9 @@ ChatGPT arbeitet ein paar Minuten und prüft sich danach selbst. Du siehst die g
 Klicke auf **„Create pull request“** (auf Deutsch etwa „Änderung einreichen“).
 Mehr musst du nicht tun.
 
-**Schritt 8 – Martin Bescheid geben**
-Schreibe Martin per WhatsApp: „Änderung ist eingereicht.“
-Er prüft sie und gibt sie frei. Nach der Freigabe ist sie nach 1–2 Minuten auf deiner Seite.
+**Schritt 8 – Kurz warten**
+Die Änderung wird automatisch geprüft. Ist die Prüfung grün, ist sie nach wenigen Minuten auf deiner Seite. Du musst niemandem Bescheid geben.
+Bleibt sie offen, steht der Grund als Kommentar an der Änderung. Dann kümmert sich 741 Studio darum.
 
 ---
 
@@ -98,8 +98,8 @@ Er prüft sie und gibt sie frei. Nach der Freigabe ist sie nach 1–2 Minuten au
 
 ## Gut zu wissen
 
-- **Wer prüft?** 741 Studio schaut jede Änderung an, bevor sie live geht. Du bist nie allein verantwortlich.
+- **Wer prüft?** Eine automatische Prüfung kontrolliert jede Änderung: kaputte Links, Bilder, Titel und riskante Aussagen. Für den Inhalt deiner Texte bist du selbst verantwortlich. Design, Skripte und Löschungen gibt weiter 741 Studio frei.
 - **Was bleibt gespeichert?** Jede Version. Der geprüfte Stand vom 9. Oktober 2026 ist als Rückkehrpunkt gesichert.
 - **Kosten:** Dein Plus-Abo reicht. GitHub ist kostenlos.
-- **Vorschau:** ChatGPT kann dir die fertige Seite meist nicht im Browser zeigen. Du siehst die Änderung nach der Freigabe live. 741 Studio prüft sie vorher.
+- **Vorschau:** ChatGPT kann dir die fertige Seite meist nicht im Browser zeigen. Du siehst die Änderung wenige Minuten nach dem Einreichen live.
 - **Englische Version:** Gibt es noch nicht. Bitte ChatGPT nicht darum.

@@ -77,7 +77,7 @@ deleted = [x for x in git("diff", "--diff-filter=D", "--name-only", f"{args.base
 if deleted and os.environ.get("ALLOW_DELETE") != "1":
     errors.append("Dateien gelöscht (nur mit [löschen erlaubt] im Titel): " + ", ".join(deleted[:15]) + (" …" if len(deleted) > 15 else ""))
 
-# ---- 4. Geschützte Dateien (Hinweis, kein Fehler: 741 Studio prüft per Code-Owner) -------------
+# ---- 4. Geschützte Dateien (Hinweis, kein Fehler: solche Änderungen gehen nicht automatisch live) --
 PROTECTED = ("assets/css/", "assets/js/", "CNAME", "robots.txt", ".github/", "scripts/", "AGENTS.md", "CLAUDE.md", "DESIGN.md")
 changed = [x for x in git("diff", "--name-only", f"{args.base}...HEAD").splitlines() if x]
 touched = [x for x in changed if x.startswith(PROTECTED) or x in PROTECTED]
@@ -119,6 +119,7 @@ for line in diff.splitlines():
     if cur in ("AGENTS.md", "DESIGN.md", "README.md", "CLAUDE.md", "SECURITY.md", "ANLEITUNG.md"):
         continue
     text = re.sub(r"<[^>]+>", " ", line[1:])
+    text = re.sub(r"\b(?:max-|min-)?(?:width|height)\s*:\s*100 ?%", " ", text, flags=re.I)  # CSS-Maß, keine Aussage
     for rx, msg in RISK:
         m = re.search(rx, text, re.I)
         if m:
